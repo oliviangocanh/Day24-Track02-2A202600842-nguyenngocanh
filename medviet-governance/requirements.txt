@@ -1,15 +1,35 @@
+# ── PII Detection & Anonymization ──────────────────────────────────────────────
 presidio-analyzer>=2.2.0
 presidio-anonymizer>=2.2.0
-numpy>=1.26.0,<3.0
 spacy>=3.7.4,<4.0
+# Sau khi pip install xong, chạy thêm:
+#   python -m spacy download vi_core_news_lg
+
+# ── Data generation & manipulation ─────────────────────────────────────────────
 faker>=18.0.0
 pandas>=2.0.0
+numpy>=1.26.0,<3.0
+
+# ── RBAC & Access Control ───────────────────────────────────────────────────────
 casbin>=1.17.0
+
+# ── API ─────────────────────────────────────────────────────────────────────────
 fastapi>=0.100.0
-uvicorn>=0.22.0
+uvicorn[standard]>=0.22.0
+python-multipart>=0.0.6
+httpx>=0.24.0          # dùng để test FastAPI endpoints
+
+# ── Encryption ──────────────────────────────────────────────────────────────────
 cryptography>=41.0.0
-great-expectations>=0.17.0
+
+# ── Data Quality ────────────────────────────────────────────────────────────────
+# great-expectations bỏ qua — kéo theo JupyterLab gây lỗi Windows Long Path
+# Thay bằng validation thuần pandas trong validation.py
+
+# ── Testing ─────────────────────────────────────────────────────────────────────
 pytest>=7.0.0
+pytest-asyncio>=0.21.0
+
+# ── Security Scanning ───────────────────────────────────────────────────────────
 bandit>=1.7.0
 pip-audit>=2.5.0
-python-multipart>=0.0.6
